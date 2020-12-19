@@ -7,6 +7,7 @@ import { BsLightning } from "react-icons/bs";
 import { GrAdd } from "react-icons/gr";
 import { AiOutlineEdit } from "react-icons/ai";
 
+
 const Storage = () => {
   let storedItems = localStorage.getItem("input");
   if (storedItems) {
@@ -23,6 +24,7 @@ function SearchField() {
   const [isEditting, setIsEditting] = useState(false);
   const [id, setEditId] = useState(null);
   const [alert, setAlert] = useState({ show: false, msg: "", status: "" });
+  const [value, setValue ] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +55,8 @@ function SearchField() {
       const items = {
         id: new Date().getTime().toString(),
         title: input,
-        time: new Date().toLocaleTimeString(),
+        time: new Date().getTime(),
+        value: value
       };
       setTask([...tasks, items]);
       setAlert({
@@ -62,6 +65,7 @@ function SearchField() {
         status: "alert-success",
       });
       setInput("");
+      setValue('')
     }
   };
 
@@ -85,6 +89,7 @@ function SearchField() {
     localStorage.setItem("input", JSON.stringify(tasks));
   }, [tasks]);
 
+
   return (
     <div>
       <div className="dark">
@@ -99,11 +104,24 @@ function SearchField() {
       {alert.show && <Alert {...alert} tasks={tasks} setTime={setAlert} />}
       <form action="" onSubmit={handleSubmit} className="form-field">
         <input
+          required
           type="text"
           value={input}
-          placeholder="add task"
+          placeholder="Add task"
           className="form-control"
           onChange={(e) => setInput(e.target.value)}
+          style={{
+            backgroundColor: isDark ? styles.backgroundColor : "#C9AFA0",
+            color: isDark ? "#fffdfb" : "black",
+          }}
+        />
+        <input
+          required
+          type="time"
+          value={value}
+          placeholder="Enter task time eg 20:12:00"
+          className="form-control"
+          onChange={(e) => setValue(e.target.value)}
           style={{
             backgroundColor: isDark ? styles.backgroundColor : "#C9AFA0",
             color: isDark ? "#fffdfb" : "black",
@@ -121,7 +139,7 @@ function SearchField() {
       </form>
       <div className="tasks">
         {tasks.length > 0 && (
-          <Task tasks={tasks} removeItem={removeItem} editItem={editItem} />
+          <Task tasks={tasks} removeItem={removeItem} editItem={editItem} setAlert={setAlert}/>
         )}
       </div>
     </div>

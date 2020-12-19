@@ -11,27 +11,25 @@
   text-align: center;
 }
 .form-control {
-  width: 70%;
-  margin: 50px auto;
+  width: 38%;
+  margin: 10px auto;
+  margin-left: 10px;
   height: 40px;
   border-radius: 10px;
-  background: #DD7E8E 58%;
+  /* background: #DD7E8E 58%; */
   border: 0;
   outline: none;
   padding-left: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 }
 .add-btn {
   background: #DD7E8E 58%;
   border-radius: 10px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
   outline: none;
   border: 0;
   height: 43px;
   cursor: pointer;
-  width: 10%;
+  width: 60%;
+  margin-bottom: 20px;
 }
 .dark > button {
   border: 0;
