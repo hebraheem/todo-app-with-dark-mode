@@ -3,6 +3,7 @@
     text-align: center;
     font-size: 2rem;
     font-style: normal;
+    margin-top: 0px;
     font-weight: 400;
     line-height: 61px;
     letter-spacing: 0.2rem;
@@ -23,6 +24,8 @@
     margin-right: auto;
     justify-items: center;
     width: 60%;
+    padding-left: 30px;
+
 }
 .task_text > p {
     padding-top: 5px;
@@ -34,7 +37,11 @@
     margin-top: 0;
     font-size: 1.2rem;
     font-weight: 300;
-    width: 100%;
+    width: 90%;
+    overflow: hidden;
+    text-transform: capitalize;
+    letter-spacing: 0.15rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .btn-div {
     width: 5%;
@@ -71,4 +78,9 @@
 
 .space{
     height: 30px;
+}
+@media(max-width:600px){
+  .task_text > h4{
+    font-size: 0.9rem;
+  }
 }

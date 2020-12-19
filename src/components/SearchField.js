@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Task from "./Task";
 import { useThemeContext } from "../context";
 import Alert from "./Alert";
@@ -7,16 +7,14 @@ import { BsLightning } from "react-icons/bs";
 import { GrAdd } from "react-icons/gr";
 import { AiOutlineEdit } from "react-icons/ai";
 
-
-const Storage = ()=>{
-  let storedItems = localStorage.getItem('input')
-  if(storedItems){
-    return JSON.parse(localStorage.getItem('input'))
+const Storage = () => {
+  let storedItems = localStorage.getItem("input");
+  if (storedItems) {
+    return JSON.parse(localStorage.getItem("input"));
   } else {
-    return []
+    return [];
   }
-}
-
+};
 
 function SearchField() {
   const { isDark, setIsDark, styles } = useThemeContext();
@@ -83,11 +81,10 @@ function SearchField() {
     setIsEditting(true);
   };
 
-  useEffect (()=>{
-    localStorage.setItem("input", JSON.stringify(tasks))
-  },[tasks])
-  
-  //console.log(tasks);
+  useEffect(() => {
+    localStorage.setItem("input", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div>
       <div className="dark">
@@ -108,13 +105,13 @@ function SearchField() {
           className="form-control"
           onChange={(e) => setInput(e.target.value)}
           style={{
-            backgroundColor: isDark ? styles.backgroundColor : "#DD7E8E",
+            backgroundColor: isDark ? styles.backgroundColor : "#C9AFA0",
             color: isDark ? "#fffdfb" : "black",
           }}
         />
         <button
           style={{
-            backgroundColor: isDark ? styles.backgroundColor : "#DD7E8E",
+            backgroundColor: isDark ? styles.backgroundColor : "#C9AFA0",
             color: isDark ? "#fffdfb" : "black",
           }}
           className="add-btn"

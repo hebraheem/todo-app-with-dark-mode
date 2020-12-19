@@ -25,9 +25,6 @@ const Task = ({ tasks, removeItem, editItem }) => {
                 backgroundColor: isDark ? styles.backgroundColor : "#C9AFA0",
               }}
             >
-              <div className="btn-div">
-                <button className="chck-btn" onClick = {()=> setChecked(!checked)}><TiInputChecked/></button>
-              </div>
               <div className="task_text">
                 <p style={{ color: isDark ? styles.textColor : "grey" }}>{time}</p>
                 <h4 style={{ color: isDark ? styles.textColor : "black",  textDecorationLine: checked && "line-through"  }}>{title}</h4>
