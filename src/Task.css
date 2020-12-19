@@ -1,0 +1,74 @@
+
+.tasks > h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 61px;
+    letter-spacing: 0.2rem;
+
+}
+.task {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    background: #C9AFA0;
+    height: auto;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.task_text {
+    display: block;
+    margin-right: auto;
+    justify-items: center;
+    width: 60%;
+}
+.task_text > p {
+    padding-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: grey;
+}
+.task_text > h4 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+    width: 100%;
+}
+.btn-div {
+    width: 5%;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.chck-btn {
+    background: #F2E4CB;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    outline: 0;
+    color: black;
+    cursor: pointer;
+}
+.task_action{
+    justify-items: center;
+}
+
+.del_btn, .edit_btn {
+    background: #F2E4CB;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    outline: 0;
+    color: black;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.space{
+    height: 30px;
+}
