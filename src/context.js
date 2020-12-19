@@ -9,7 +9,7 @@ export const AppProvider = ({ children }) => {
     backgroundColor: "#303D50",
     inputBg: "#303D50",
     textColor: "#FFFDFB",
-    body: "#212E3E",
+    body: "#111",
   };
 
   return (
