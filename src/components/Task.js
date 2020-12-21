@@ -1,73 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../Task.css";
 import { useThemeContext } from "../context";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-//import { TiInputChecked } from "react-icons/ti";
 
-const Task = ({ tasks, removeItem, editItem, setAlert }) => {
+const audioTune = new Audio(
+'src/audio/8660_download_samsung_galaxy_s6_2_ringtone.mp3');
+
+const Task = ({ tasks, removeItem, editItem }) => {
   const [checked, setChecked] = useState(false);
   const { isDark, styles } = useThemeContext();
+  // const [playInLoop, setPlayInLoop] = useS
 
-  useEffect((id) => {
-    const alert = tasks.map((task) => {
-      if (task.id === id) {
-        let countDownDate = task.value.toLocaleString();
-        let today = new Date();
-        let currentTime = today.getHours() + ":" + today.getMinutes();
-        console.log(countDownDate);
-        console.log(currentTime);
-        if (currentTime === countDownDate) {
-          console.log("you made it");
-        }
+  const setAlertNot = (id) => {
+    let interval = setInterval(() => {
+      if (!interval) {
+        alert("Alert already set");
+        clearInterval(interval);
+      } else {
+        tasks.map((task) => {
+          if (task.id === id) {
+            let countDownDate = task.value.toLocaleString();
+            let today = new Date();
+            let currentTime =
+              today.getHours() +
+              ":" +
+              (today.getMinutes() < 10 ? "0" : "") +
+              today.getMinutes();
+            console.log(countDownDate);
+            console.log(currentTime);
+            alert("Alert set");
+            if (currentTime === countDownDate) {
+              console.log("you made it");
+              audioTune.load();
+              audioTune.play();
+              clearInterval(interval);
+              interval = false;
+            } else if (currentTime > countDownDate) {
+              alert("Task Expired");
+              clearInterval(interval);
+            }
+          } 
+        });
       }
-    });
-  }, []);
-  // const setAlertNot = (id) => {
-  //   const alert = tasks.map((task) => {
-  //     if (task.id === id) {
-  //       let countDownDate = task.value.toLocaleString();
-  //       let today = new Date();
-  //       let currentTime =
-  //         today.getHours() +
-  //         ":" +
-  //         (today.getMinutes() < 10 ? "0" : "") + today.getMinutes();
-  //       console.log(countDownDate);
-  //       console.log(currentTime);
-
-  //       if (currentTime === countDownDate) {
-  //         console.log("you made it");
-  //         clearInterval(setAlertNot);
-  //       }
-  //     }
-  //   });
-  // };
-const setAlertNot =(id)=>{
-  const interval = setInterval(() => {
-      const alert = tasks.map((task) => {
-        if (task.id === id) {
-          let countDownDate = task.value.toLocaleString();
-          let today = new Date();
-          let currentTime =
-            today.getHours() +
-            ":" +
-            (today.getMinutes() < 10 ? "0" : "") + today.getMinutes();
-          console.log(countDownDate);
-          console.log(currentTime);
-          if (currentTime === countDownDate) {
-            console.log("you made it");
-            clearInterval(interval);
-          }
-        }
-      });
-  }, 1000);
-}
+    }, 1000);
+  };
 
   return (
     <div className="tasks">
       <h3 style={{ color: isDark ? styles.textColor : "black" }}>My Task</h3>
       {tasks.map((task) => {
-        const { id, title, time, value } = task;
+        const { id, title, value } = task;
         return (
           <>
             <div
