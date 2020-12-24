@@ -30,6 +30,7 @@ const Task = ({ tasks, removeItem, editItem }) => {
             console.log(countDownDate);
             console.log(currentTime);
             alert("Alert set");
+            clearInterval(interval);
             if (currentTime === countDownDate) {
               console.log("you made it");
               audioTune.load();
@@ -37,7 +38,7 @@ const Task = ({ tasks, removeItem, editItem }) => {
               clearInterval(interval);
               interval = false;
             } else if (currentTime > countDownDate) {
-              alert("Task Expired");
+              //alert("Task Expired");
               clearInterval(interval);
             }
           } 
